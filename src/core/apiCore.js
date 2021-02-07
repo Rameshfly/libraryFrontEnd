@@ -2,7 +2,7 @@ import { API } from "../Config";
 import queryString from "query-string";
 
 export const getBooks = (sortBy) => {
-    return fetch(`${API}/books?sortBy=${sortBy}&order=desc&limit=6`, {
+    return fetch(`${API}/books?sortBy=${sortBy}&order=desc&limit=30`, {
       method: "GET"
     })
     .then(response => {
