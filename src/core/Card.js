@@ -9,8 +9,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 const Card = ({ 
     book,
-    showViewProductButton = true,
-    showAddToCartButton = false,
+    showViewBookButton = true,
+    showAddToBagButton = false,
     showAvailabilityButton = true,
 }) => {
     const [data, setData] = useState({
@@ -47,9 +47,9 @@ const Card = ({
         });
     };
 
-    const showViewButton = (showViewProductButton) => {
+    const showViewButton = (showViewBookButton) => {
         return(
-            showViewProductButton && (
+            showViewBookButton && (
                 <Link to={`/book/${book._id}`}>
                 <button className="btn btn-outline-primary mr-2 mt-2 mb-2">
                     View Book
@@ -81,7 +81,7 @@ const Card = ({
             </h3>
             }
             else{
-                showAddToCartButton = true;
+                showAddToBagButton = true;
                 showAvailabilityButton = false;
                 return (<h3 className="text-success">
                 Available.
@@ -131,8 +131,8 @@ const Card = ({
         inventoryCheckByBook();
     }
 
-    function showAddToBag(showAddToCartButton) {
-        return showAddToCartButton ? 
+    function showAddToBag(showAddToBagButton) {
+        return showAddToBagButton ? 
         (
             isAuthenticated() && user.role === 0 ? (
             <button onClick={addToInventory} className="btn btn-outline-warning mt-2 mb-2">
@@ -178,11 +178,11 @@ const Card = ({
                
                {showMessage(searched)}
 
-               {showViewButton(showViewProductButton)}
+               {showViewButton(showViewBookButton)}
 
                {checkAvailabilityButton(showAvailabilityButton)}
                
-               {showAddToBag(showAddToCartButton)}
+               {showAddToBag(showAddToBagButton)}
 
             
               </div>
