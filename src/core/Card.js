@@ -18,7 +18,7 @@ const Card = ({
         searched: false,
     });
     const [redirect, setRedirect] = useState(false);
-    const [message, setMessage] = useState(false);
+    //const [message, setMessage] = useState(false);
 
 
     const { results, searched } = data;
